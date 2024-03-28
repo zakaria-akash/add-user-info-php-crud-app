@@ -23,6 +23,17 @@
   </nav>
 
   <div class="container-fliud table-responsive d-flex flex-column justify-content-center align-items-center px-4">
+
+    <?php
+    if (isset ($_GET['msg'])) {
+      $msg = $_GET['msg'];
+      echo '
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+  ' . $msg . '
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>';
+    }
+    ?>
     <a href="add_new.php" class="btn btn-dark btn-block btn-lg my-4">Add New</a>
 
     <table class="table table-hover text-center table-dark">
@@ -60,10 +71,10 @@
               <?php echo $row['gender'] ?>
             </td>
             <td class="d-flex justify-content-center align-items-center">
-              <a href="edit.php?id==<?php echo $row['id'] ?>" class="link-dark">
+              <a href="edit.php?id=<?php echo $row['id'] ?>" class="link-dark">
                 <i class="fa-solid fa-pen-to-square mx-2" style="color: #fff;"></i>
               </a>
-              <a href="delete.php?id==<?php echo $row['id'] ?>" class="link-dark">
+              <a href="delete.php?id=<?php echo $row['id'] ?>" class="link-dark">
                 <i class="fa-solid fa-trash mx-2" style="color: #fff;"></i>
               </a>
             </td>
